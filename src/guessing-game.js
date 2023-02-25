@@ -1,21 +1,27 @@
+const calcMid = (start, end) => start + Math.ceil((end - start) / 2);
+
 class GuessingGame {
-    constructor() {}
+  #min;
+  #max;
+  #mid;
 
-    setRange(min, max) {
+  setRange(min, max) {
+    this.#min = min;
+    this.#max = max;
+  }
 
-    }
+  guess() {
+    this.#mid = calcMid(this.#min, this.#max);
+    return this.#mid;
+  }
 
-    guess() {
+  lower() {
+    this.#max = this.#mid;
+  }
 
-    }
-
-    lower() {
-
-    }
-
-    greater() {
-
-    }
+  greater() {
+    this.#min = this.#mid;
+  }
 }
 
 module.exports = GuessingGame;
